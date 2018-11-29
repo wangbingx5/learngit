@@ -1,18 +1,70 @@
-lscup �鿴cup
-free -h�鿴�ڴ�
-cat /proc/meminfo �鿴�ڴ�
-lsblk �鿴Ӳ�̴�С
-ifconfig�鿴IP��ַ eth0������ lo�黹����
-cat /etc/centos-relase  �� lsb_release -a �鿴CentOS�汾
-uname -r �鿴CentOS�ں˰汾(kernel)
-tty �鿴��ǰ�ն��豸
-who �鿴˭��½�ն�
-who am i ���û�����½ʱ�� whoami�鿴�û�
-CLI ��Command Line Interface�������нӿ�,��shell������ת��Ϊ����ʶ��Ķ����ƣ������ṩ
-echo $SHELL �鿴shell����
-cat /etc/shells �鿴֧�ֵ�����shell����
-echo $PS1 �鿴��ʽ
+﻿pwd输入当前工作路径
+lscup 查看cup
+free -h查看内存
+cat /proc/meminfo 查看内存
+lsblk 查看硬盘大小
+ifconfig查看IP地址 eth0网卡名 lo归还(?)网卡
+cat /etc/centos-relase  或 lsb_release -a 查看CentOS版本
+uname -r 查看CentOS内核版本(kernel)
+tty 查看当前终端设备
+who 查看谁登陆终端
+who am i 看用户、登陆时间 whoami查看用户
+CLI （Command Line Interface）命令行接口,由shell（负责转化为机器识别的二进制）程序提供
+echo $SHELL 查看shell类型
+cat /etc/shells 查看支持的所有shell类型
+echo $PS1 查看格式
 ls
-ls -a�鿴�����ļ�
-gedit .bash_profile CentOS7�޸���ɫ
-nano .bash_profile CentOS6�޸���ɫ(control+��
+ls -a查看隐藏文件
+命令--内部、外部（可执行文件）
+内部命令
+enable 查看所有内部命令
+help 内部命令列表
+enable cmd 启用内部命令
+enable -n cmd 禁用内部命令
+enable -n 查看所有禁用命令
+
+
+外部命令
+echo $PATH  按照搜素路径查找
+which +文件  可以看到它的路径信息
+whereis +文件 可以查找具体位置以及用到的相关文件
+查看命令类型 type +命令
+
+【hash】已经执行过的外部命令会存到hash表，下次使用从表中获取，不必从内存中查询
+hash---查看所有表存数据
+【alias】别名>原始（优先级）>内部命令>外部命令
+alias (command)查看系统中的所有别名
+unalias +别名 取消别名
+nano ~/.bashrc 保存别名（ctrl+x，y,enter）【仅对当前用户】~表示那种               用户权限
+/etc/.bashrc  【针对所有用户】修改别名
+unalias + 别名  暂时取消别名，重新登录又恢复（写到文件里了）
+
+. +fliename or source +filename 修改文件立即生效
+“别名” or  \别名 or '别名' 使用原始定义，不使用别名定义
+【问题记录】
+1.192.168.32.101去哪了？
+
+
+poweroff 关机
+
+【命令格式】
+1.COMMAND [OPTIONS][ARGUMENTS]
+  选项--用于启用或关闭命令的某个或某些功能
+   短选项：-c 例如:-l,-h
+   长选项:--word 例如--all --human --readable
+  参数：命令的作用对象，比如文件名，用户名
+2.注意
+  多个选项一级多参数和命令之间使用空白字符分隔
+  取消和结束命令执行：Ctrl+c,Ctrl+d
+  多个命令可以用;符号分开
+  一个命令可以用\分成多行
+
+
+ 修改CentOS7网卡名称
+ gedit /boot/grub2/gurb.cfg
+ Linux16 后加 nct.ifnames=0
+ reboot 重新启动虚拟机
+ 【日期和时间】
+ 1.Linux的两种时钟：
+ 	系统时钟：由Linux内核通过CPU的工作频率进行的
+ 	硬件时钟：主板
