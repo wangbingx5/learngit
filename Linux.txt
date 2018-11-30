@@ -1,4 +1,4 @@
-﻿pwd输入当前工作路径
+pwd输入当前工作路径
 lscup 查看cup
 free -h查看内存
 cat /proc/meminfo 查看内存
@@ -68,3 +68,42 @@ poweroff 关机
  1.Linux的两种时钟：
  	系统时钟：由Linux内核通过CPU的工作频率进行的
  	硬件时钟：主板
+
+ 时区查看 /etc/localtime
+ 日历查看 cal  / cal -y（整年）
+
+ 【简单命令】
+ 1.关机 halt,poweroff
+ 2.重启：reboot
+         -f:强制，不调用shutdown
+         -p:切断电源
+ 3.关机或重启：shudown
+  shutdown[OPTION]... TIME[MESSAGE]
+  -r:reboot
+  -h:halt
+  -c:cancel
+  TIME:无指定，默认相当于+1
+       now:理科，相当于+0
+       +m:相对时间表示法，几分钟后；例如+3
+       hh:mm:绝对时间表示，指明具体时间
+  4.w:系统当前所有的登录会话及所做的操作
+  5.安装screen---一个主机两个终端
+    rpm -ivh /run.../Packages/screen....
+    步骤1:终端A创建会话 screen -S [session]
+       2：B加入会话 screen -ls(查看) screen -x [session] 
+       3.完全退出 exit
+         剥离对话 Ctrl+a,d
+         恢复对话 screen -r[SESSION]
+ 【简单命令】
+ 	功能：显示字符
+ 	“”:命令不记得，变量记得
+ 	$()：命令和变量都认得
+ 	‘’：强引用，即引用字符串里的字符--六亲不认
+ 	{}:组合
+ 	结论
+ 	  ``=$()反向单引号，命令调用另一个命令的执行结果时使用
+ 【网络知识】
+ 1.IP--计算机在网络中的唯一身份ID
+   IP地址=网络地址+主机地址(又称主机号和网络号组成)
+   192.168.1.168(IP地址)=192.168.1.0（网络地址)+0.0.0.168(主机地址)
+ 2.子网掩码
