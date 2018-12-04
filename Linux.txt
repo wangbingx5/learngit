@@ -9,7 +9,10 @@ uname -r 查看CentOS内核版本(kernel)
 tty 查看当前终端设备
 who 查看谁登陆终端
 who am i 看用户、登陆时间 whoami查看用户
+clock
+cal
 CLI （Command Line Interface）命令行接口,由shell（负责转化为机器识别的二进制）程序提供
+date
 echo $SHELL 查看shell类型
 cat /etc/shells 查看支持的所有shell类型
 echo $PS1 查看格式
@@ -22,8 +25,12 @@ help 内部命令列表
 enable cmd 启用内部命令
 enable -n cmd 禁用内部命令
 enable -n 查看所有禁用命令
-
-
+history
+hash
+screen
+rm
+touch
+type
 外部命令
 echo $PATH  按照搜素路径查找
 which +文件  可以看到它的路径信息
@@ -117,22 +124,105 @@ poweroff 关机
  	Esc, .(点击Esc键后松开，然后点击.键)
  	Alt+.（按住Alt键的同时点击.键）
 
+【命令帮助】
+内部命令	
+	help COMMAND
+	man bash
+	whatis COMMAND(内部命令)
+	man -f  COMMAND(内部命令)
+外部命令
+   COMMAND --help
+
+【文件类型】
+-：普通文件
+d: 目录文件
+b: 块设备
+c: 字符设备
+l: 符号链接文件
+p: 管道文件pipe
+s: 套接字文件sock
+
+pwd -P 显示物理路劲
+【绝对路径和相对路径】
+/user/bin/ls
+basename /usr/bin/ls 返回结果为 ls      basename基名
+dirname /uer/bin/ls 返回结果为/usr/bin  dirname 目录名
+. 当前目录
+.. 父目录
+cd 返回根目录
+cd - 返回操作前的目录
 
 
- 【man命令】
- 1.提供命令辅助的文件
- 2.手册页存放在/usr/share/man
- 3.几乎每个命令都有man的‘页面’
- 4.man页面分组为不同的‘章节’
- 5.
+su - hostname 转化身份
 
- man章节
-  1.用户命令
-  2.系统调用
-  3.C库调用
-  4.设备文件及特殊文件
-  5.配置文件格式
-  6.游戏
-  7.杂项
-  8.管理类的命令
-  9.Linux内核API
+【列出目录内容】
+用法：ls[options] [files_or_dirs]
+ls -a 包含隐藏文件
+ls -l 显示额外信息
+ls -R 目录递归通过
+ls -ld 目录和符号链接的信息
+ls -1 文件分行显示
+ls -S 按从大到小排序
+ls -t 按mtime排序
+ls -u 配合-t选线，显示并按atime从新到旧排序
+ls -U 按目录存放顺序显示
+ls -X 按文件后缀排序
+
+
+【查看文件状态】
+stat
+文件:metadata,data
+三个时间戳:
+	access time:访问时间，atime,读取文件内容   ll --time=atime [file]
+	modify time:修改时间，mtime,改变文件内容(数据)
+	change time:改变时间，ctime,元数据发生变化--- chown [name] [file]  ,ll --time=ctime [file]
+	显示三个时间 stat [file]
+
+【文件通配符】
+* 匹配零个或多个字符
+？ 陪陪任何单个字符
+~ 当前用户家目录
+~ mage 用户mage家目录
+~ + 当前工作目录
+~ - 前一个工作目录
+[0-9] 匹配数字范围
+[a-z] 字母
+[A-Z] 字母
+[wang]  匹配列表中的任何的一个字符
+[^wang] 匹配列表中的所有字符以外的字符
+[:digit:]	任意数字，相当于0-9
+[:lower:]	任意小写字母
+[:upper:]	任意大写字母
+[:alpha:]	任意大小写字母
+[:alnum:]	任意数字或字母
+[:blank:]	水平空白字符
+[:space:]	水平或垂直空白字符
+[:punct:]	标点符号
+[:print:]	可打印字符
+[:cntrl:]	控制(非打印)字符
+[:graph:]	图形字符
+[:xdigit:]	十六进制字符
+
+【创建空文件和刷新时间】
+touch 
+
+如果创建已经有的新文件，则会把时间刷新不会影响其他
+> +name 也能创建新文件，但会改变文件所有内容
+
+   -a  仅修改atime和ctime
+   -m  仅修改mtime和ctime
+   -c  如果文件不存在，则不予创建。只刷新时间戳
+
+【复制文件和目录cp】
+   cp [OPTION]...[-T] SOURCE DEST(新文件名)
+   cp [OPTION]..SOURCE...DIRECTORY
+   cp [OPTION]..-t DIRECTORY SOURCE...
+   cp SRC DEST
+   SRC是文件：
+   	如果目标不存在：新建DEST，并将SRC中内容填充至DEST中
+   	如果目标存在:
+   		如果DEST是文件:将SRC中的内容覆盖至DEST中
+   		     基于安全，建议cp命令使用-i选项
+   		如果DEST是目录：在DEST新建与原文件同名的文件，并将SRC中内容填充至新文件中
+
+【】

@@ -1,0 +1,65 @@
+1.显示日期的指定  date
+  date +%Y/%m/%d ----显示年、月、日
+  date +%H:%M  ----显示小时、分钟
+  date +%F ----显示今天日期(year-month-day)
+2.显示日历的指令 cal
+	cal ----显示当前月份的日历
+	cal [year] ----显示当年所有月份的日历
+	cal [month]  [year]  ---- 显示当前所在月的日历
+3.简单好用的计算器
+  bc---指令输入显示计算器
+  +加法
+  -减法
+  *乘法
+  /除法  10/100>===0  bc预设仅输出为整数，如果要输出小数点下位数，scale=number(位数)
+  ^指数
+  %余数
+  quit 退出
+4.[Tab]按键----命令补全键
+  [Tab]接在一串指定的第一个字的后面，则为命令补全
+  [Tab]接在一串指定的第二个字的后面，则为档案补全
+5.[Ctrl]c 终止目前程序的按键
+6.[Ctrl]d 直接离开文字接口，等价于exit
+7.man [Command]
+   Space 用于向下翻页
+   Enter 下一行
+   PaUp PaDn 上下翻页
+   / + [string]搜索向下   n向下搜索下一个匹配目标，N向上搜索下一个匹配目标
+   ? + [string]搜索向上    n向下搜索下一个匹配目标，N向上搜索下一个匹配目标
+   # + [page] 切换到某页
+   q 退出（quit)
+   G  or home 切换到正文行尾
+   1G or End  切换到正文行首
+ 查看命令相关的man [Command]文件
+ 	whatis [Command]  or man -f [Command]
+ 查看具体的man 对应编号的文档  man [num] [Command]
+ 查看系统的说明文件中查找有关键字的说明   man -k [key]
+ 8.info page
+    与man不同:将文件数据茶城一个一个的段落，每个段落用自己的页面来撰写，并且在每个页面中还有类似超链接来跳转到各种不同页面中，每个独立的页面也被称为一个节点[node]。info是文本模式的网页显示数据！
+   Space 用于向下翻页
+   PaUp PaDn 上下翻页
+   [Tab]在node之间移动，有node的地方，通常会以*显示
+   [Enter]当光标在node上面是，按下Enter可以进入该node
+   b  移动光标到该info画面当中的第一个node处
+   e  移动光标到该info画面当中的最后一个node处
+   n  前往下一个node处
+   p  前往上一个node处
+   u  向上移动一层
+   s(/) 在info page当中进行搜索
+   h  显示求助选单
+   ？ 指令一览表
+   q  结束这次的info page
+9.文件属性
+	drwxr-xr-x.         2 	    	 root  		 root 		   6         Nov 30 19:31       Videos
+	             [硬链接个数默认1]   	[拥有者]      [群组]      [档案容量]       [修改日期]      [档名]
+	d 	  rwx(123)   rwx(456)   rwx(789)
+	      属主权限    属组权限    其他用户权限   read(r)   w(write)  x(execute)
+	
+
+	d 目录
+	- 文件
+	l 连接文档
+	b 装置文件里面可供存储设备的接口设备(可随机存取装备)
+	c 装置文件里的串行端口设备，例如键盘、鼠标(一次性读取装置)
+
+
