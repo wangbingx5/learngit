@@ -241,3 +241,33 @@ touch
 	  [root@CentOS7 data]#ll -s  f1          /root/flink1  >>> 不行
 	  [root@CentOS7 data]#ll -s  /data/f1    /root/flink1  >>> 绝对路径
 	  [root@CentOS7 data]#ll -s  ../data/f1  /root/flink1  >>> 相对路径
+【确定文件内容】
+	file [OPTIONS] <filename>...
+	打开文件的首部信息来确定文件类型---
+	-b 列出文件辨识结果时，不显示文件名称
+	-f filelist 列出文件filelist中文件名的文件类型
+	-F 使用指定分隔符号替换输出文件名后默认的”:”分隔符
+	-L 查看对应软链接对应文件的文件类型
+	--help 显示命令在线帮助
+	用户设备是默认的标准输入输出端口
+【重定向】
+	I/O重定向：改变默认位置
+	tr命令
+	tr [OPTION ]... SET1 [SET2]
+	cat  < f1 > f1 内容为空 > 为覆盖的意思
+	cat  < f2 > f3 内容为f2
+	cat > f1 修改文本:删除键+Ctrl --- 单行重定向，写入行就提交(可以边写边查看文件效果)
+	多行重定向----  cat <<标志字符  ，以标志服为结束
+【问题】
+	2>&1 什么意思
+【用户组权限】
+	0 root 管理员权限
+	1-499 1-999给我们服务的进程使用
+	500+ 1000+ 登录用户权限
+	/etc/passwd    用户及其属性信息(名称、UID、主组ID等)
+	/etc/group     组及其属性信息
+	/etc/shadow	   用户密码及其相关属性
+	/etc/gshadow   组密码及其相关属性
+【切换用户】
+	su [options...] [-] [user [args...]]
+    su = switch user

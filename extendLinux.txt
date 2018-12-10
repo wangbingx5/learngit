@@ -67,6 +67,10 @@
 	chgrp 改变档案所属群组  change group ①要被更改的组名在/etc/gropu档案内存在，否则显示错误
 	chown 改变档案拥有者    change owner 用户必须是已经存在系统中的账号  chown user group file
 	chmod 改变档案的权限  	SUID,SGID,SBIT等特性
+
+	chown user file
+	chgrp group file
+	chown user.group file   or  chown user:group file
 	【数字类型改变档案权限】
 	owner/group/others:
 	r:4     w:2    e:1
@@ -89,3 +93,4 @@ w实时具有写入/编辑/新增/修改档案内容的权限！与档案档名�
 	*.sh 脚本或批处理文件(scripts),因为批处理文件使用shell写成的，所以扩展名就编程.sh
 	*Z,*.tar,*tar.gz,*.zip,*.tgz :经过打包的压缩文件。因为压缩文件分别是gunzip,tar等等的
 	*.html,*.php 网页相关档案
+ll
